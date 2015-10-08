@@ -89,7 +89,7 @@
                 };
 
                 var insertNumberIntobingoTicket = function (column, numberFromString) {
-                    if(me.ticketGrid[0][column] === null){
+                    if(me.ticketGrid[0][column] === null && checkRowForFiveNumbers()){
                         me.ticketGrid[0][column] = numberFromString;
                     }
                     else if (me.ticketGrid[1][column] === null) {
@@ -98,6 +98,10 @@
                     else {
                         me.ticketGrid[2][column] = numberFromString;
                     }
+                };
+
+                var checkRowForFiveNumbers = function (row) {
+
                 };
 
                 var splitingNumbersUp = function (strTicket) {
