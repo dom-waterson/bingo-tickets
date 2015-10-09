@@ -89,10 +89,10 @@
                 };
 
                 var insertNumberIntobingoTicket = function (column, numberFromString) {
-                    if(me.ticketGrid[0][column] === null && checkRowForFiveNumbers()){
+                    if(me.ticketGrid[0][column] === null && checkRowForFiveNumbers(0)){
                         me.ticketGrid[0][column] = numberFromString;
                     }
-                    else if (me.ticketGrid[1][column] === null) {
+                    else if (me.ticketGrid[1][column] === null && checkRowForFiveNumbers(1)) {
                         me.ticketGrid[1][column] = numberFromString;
                     }
                     else {
@@ -101,7 +101,18 @@
                 };
 
                 var checkRowForFiveNumbers = function (row) {
-
+                    var count = 0;
+                    for (var i = 0; i < 9; i++){
+                        if(me.ticketGrid[row][i] != null) {
+                            count += 1;
+                        }
+                    }
+                    if(count === 5){
+                        return false;
+                    }
+                    else{
+                        return true;
+                    }
                 };
 
                 var splitingNumbersUp = function (strTicket) {
